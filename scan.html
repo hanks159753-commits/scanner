@@ -1,0 +1,16 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.css">
+<div id="reader" style="width:320px;height:140px"></div>
+<script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+<script>
+// 將下面改成你的主站 HTTP 來源（例如 "http://intranet" 或 "http://192.168.0.10"）
+const TARGET_ORIGIN = "http://YOUR_HTTP_SITE";
+
+const qr = new Html5Qrcode("reader");
+qr.start(
+  { facingMode: "environment" },
+  { fps: 10, qrbox: { width: 300, height: 100 } }, // 300×100 小視窗
+  text => window.parent.postMessage({ type:"QR_DECODED", data:text }, TARGET_ORIGIN),
+  _ => {}
+).catch(e => alert("開相機失敗：" + e));
+</script>
