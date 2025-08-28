@@ -3,8 +3,7 @@
 <div id="reader" style="width:320px;height:140px"></div>
 <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 <script>
-// 改成你的 HTTP 主站來源（一定要含 http://）
-const TARGET_ORIGIN = "http://YOUR_HTTP_SITE";
+const TARGET_ORIGIN = "http://192.168.0.24/InspectionSystem_Parking/WEB/App_Page/Patrol_Records.aspx";
 
 const qr = new Html5Qrcode("reader");
 qr.start(
